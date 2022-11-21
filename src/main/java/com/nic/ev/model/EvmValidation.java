@@ -27,9 +27,6 @@ public class EvmValidation {
 	@Column
 	private int warranty;
 	
-
-
-
 	public String getModelName() {
 		return modelName;
 	}
@@ -45,8 +42,6 @@ public class EvmValidation {
 	public void setMinTopSpeed(int minTopSpeed) {
 		this.minTopSpeed = minTopSpeed;
 	}
-
-	
 
 	public float getMinAcceleration() {
 		return minAcceleration;

@@ -31,14 +31,14 @@ public class VehicleDetailsController {
 	@PostMapping("/vehicleDetails")
 	private VehicleDetailsModel getVehicleDetails(@RequestBody String regn){
 		
-		String queryToGetVehicleDetails = "select o.regn_no,o.owner_name, o.chasi_no, o.eng_no, vm.descr as vmaker, "
-				+ " model_name,vc.descr as vclass, c_add1,regn_dt,vf.descr as vfuel,o.off_cd,i.mobile_no, o.sale_amt, o.purchase_dt "
-				+ " from vw_vahan.vt_owner o "
-				+ " left join vw_vahan.vm_vh_class vc on o.vh_class = vc.vh_class "
-				+ " left join vw_vahan.vm_fuel vf on o.fuel = vf.code "
-				+ " left join vw_vahan.vm_maker vm on o.maker = vm.code "
-				+ " left join vw_vahan.vt_owner_identification i on o.regn_no = i.regn_no "
-				+  "where o.regn_no = '"+regn+"'";
+			String queryToGetVehicleDetails = "select o.regn_no,o.owner_name, o.chasi_no, o.eng_no, vm.descr as vmaker, "
+					+ " model_name,vc.descr as vclass, c_add1,regn_dt,vf.descr as vfuel,o.off_cd,i.mobile_no, o.sale_amt, o.purchase_dt "
+					+ " from vw_vahan.vt_owner o "
+					+ " left join vw_vahan.vm_vh_class vc on o.vh_class = vc.vh_class "
+					+ " left join vw_vahan.vm_fuel vf on o.fuel = vf.code "
+					+ " left join vw_vahan.vm_maker vm on o.maker = vm.code "
+					+ " left join vw_vahan.vt_owner_identification i on o.regn_no = i.regn_no "
+					+  "where o.regn_no = '"+regn+"'";
 		VehicleDetailsModel vdm = new VehicleDetailsModel();
 		
 //		vehicleDetailsModel = new ArrayList<VehicleDetailsModel>();

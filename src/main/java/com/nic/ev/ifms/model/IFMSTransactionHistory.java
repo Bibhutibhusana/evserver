@@ -9,19 +9,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.nic.ev.ifms.model.webservice.BaseEntity;
+
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name="evh_ifms_transaction")
-public class IFMSTransactionHistory {
+public class IFMSTransactionHistory extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name ="file_name")
-	private String fileName;
+	@Column(name ="file_ref_id")
+	private String fileRefId;
+	
+	@Column(name="bill_no")
+	private String billNo;
 	
 	@Column(name="appl_no")
 	private String applNo;
 	 
+	@Column(name="regn_no",unique= true, nullable = false)
+	private String regnNo;
+
 	@Column(name="acc_no")
 	private String accNo;
 	
@@ -31,14 +42,14 @@ public class IFMSTransactionHistory {
 	@Column(name="ifsc")
 	private String ifsc;
 	
-	@Column(name="push_date")
-	private Date pushDate;
+	@Column(name="submit_status")
+	private String submitStatus;
 	
-	@Column(name="push_status")
-	private String pushStatus;
+	@Column(name="submit_date")
+	private Date submitDate;
 	
-	@Column(name="push_err")
-	private String pushErr;
+	@Column(name="submit_err")
+	private String submitErr;
 	
 	@Column(name="ack_status")
 	private String ackStatus;
@@ -49,23 +60,15 @@ public class IFMSTransactionHistory {
 	@Column(name="ack_err")
 	private String ackErr;
 	
-	@Column(name="res_status")
-	private String resStatus;
+	@Column(name="bill_status")
+	private String billStatus;
 	
-	@Column(name="res_date")
-	private Date resDate;
+	@Column(name="bill_status_date")
+	private Date billStatusDate;
 	
-	@Column(name="res_err")
-	private String resErr;
+	@Column(name="bill_status_err")
+	private String billStatusErr;
 	
-	@Column(name="is_verified")
-	private Boolean isVerified;
-	
-	@Column(name="op_dt")
-	private Date opDt;
-	
-	@Column(name="unique_id",unique= true, nullable = false)
-	private String uniqueId;
 
 	public Long getId() {
 		return id;
@@ -73,14 +76,6 @@ public class IFMSTransactionHistory {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
 	}
 
 	public String getApplNo() {
@@ -115,30 +110,7 @@ public class IFMSTransactionHistory {
 		this.ifsc = ifsc;
 	}
 
-	public Date getPushDate() {
-		return pushDate;
-	}
-
-	public void setPushDate(Date pushDate) {
-		this.pushDate = pushDate;
-	}
-
-	public String getPushStatus() {
-		return pushStatus;
-	}
-
-	public void setPushStatus(String pushStatus) {
-		this.pushStatus = pushStatus;
-	}
-
-	public String getPushErr() {
-		return pushErr;
-	}
-
-	public void setPushErr(String pushErr) {
-		this.pushErr = pushErr;
-	}
-
+	
 	public String getAckStatus() {
 		return ackStatus;
 	}
@@ -163,54 +135,5 @@ public class IFMSTransactionHistory {
 		this.ackErr = ackErr;
 	}
 
-	public String getResStatus() {
-		return resStatus;
-	}
-
-	public void setResStatus(String resStatus) {
-		this.resStatus = resStatus;
-	}
-
-	public Date getResDate() {
-		return resDate;
-	}
-
-	public void setResDate(Date resDate) {
-		this.resDate = resDate;
-	}
-
-	public String getResErr() {
-		return resErr;
-	}
-
-	public void setResErr(String resErr) {
-		this.resErr = resErr;
-	}
-
-	public Boolean getIsVerified() {
-		return isVerified;
-	}
-
-	public void setIsVerified(Boolean isVerified) {
-		this.isVerified = isVerified;
-	}
-
-	public String getUniqueId() {
-		return uniqueId;
-	}
-
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
-	}
-
-	public Date getOpDt() {
-		return opDt;
-	}
-
-	public void setOpDt(Date opDt) {
-		this.opDt = opDt;
-	}
-	
-	
 	
 }
