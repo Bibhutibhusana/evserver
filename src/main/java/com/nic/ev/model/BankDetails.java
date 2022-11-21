@@ -3,8 +3,15 @@ package com.nic.ev.model;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.nic.ev.ifms.utils.StringPrefixedSequenceIdGenerator;
 
 @Entity
 @Table(name="evt_bank_details")
@@ -28,9 +35,22 @@ public class BankDetails {
 	private byte[] passbookImg;
 
 	private String applNo;
+	
+	private String accType;
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "benf_id_sequence")
+//    @GenericGenerator(
+//            name = "benf_id_sequence", 
+//            strategy = "com.nic.ev.ifms.utils.StringPrefixedSequenceIdGenerator", 
+//            parameters = { 
+//                    @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+//                    @Parameter(name = StringPrefixedSequenceIdGenerator.CODE_NUMBER_SEPARATOR_PARAMETER, value = "_"), 
+//                    @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d")})
+    
+	private String benfId;
+	
 	public String getRegnNo() {
 		return regnNo;
-	}
+	}  
 
 	public void setRegnNo(String regnNo) {
 		this.regnNo = regnNo;
@@ -98,6 +118,22 @@ public class BankDetails {
 
 	public void setApplNo(String appNo) {
 		this.applNo = appNo;
+	}
+
+	public String getAccType() {
+		return accType;
+	}
+
+	public void setAccType(String accType) {
+		this.accType = accType;
+	}
+
+	public String getBenfId() {
+		return benfId;
+	}
+
+	public void setBenfId(String benfId) {
+		this.benfId = benfId;
 	}
 	
 	

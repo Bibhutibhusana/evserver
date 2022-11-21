@@ -7,38 +7,60 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceProperty;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.nic.ev.ifms.model.webservice.BaseEntity;
 
 @Entity
 @Table(name="evt_ifms_transaction")
-public class IFMSIntegrationTrack {
+public class IFMSIntegrationTrack extends BaseEntity{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name ="file_name")
-	private String fileName;
+	@Column(name ="file_ref_id")
+	private String fileRefId;
 	
-	@Column(name="appl_no")
+	@Column(name="bill_no")
+	private String billNo;
+	
+	@Column(name="org_bill_ref_no")
+	private String billRefNo;
+	
+	@Column(name="res_file_name")
+	private String resFileName;
+	
+	@Column(name="appl_no",unique=true,nullable=false)
 	private String applNo;
 	 
+	@Column(name="regn_no",unique= true)
+	private String regnNo;
+
 	@Column(name="acc_no")
 	private String accNo;
-	
+	 
 	@Column(name="name")
 	private String name;
 	
 	@Column(name="ifsc")
 	private String ifsc;
 	
-	@Column(name="push_date")
-	private Date pushDate;
+	@Column(name="submit_status")
+	private String submitStatus;
 	
-	@Column(name="push_status")
-	private String pushStatus;
+	@Column(name="submit_date")
+	private Date submitDate;
 	
-	@Column(name="push_err")
-	private String pushErr;
+	@Column(name="submit_err")
+	private String submitErr;
 	
 	@Column(name="ack_status")
 	private String ackStatus;
@@ -49,23 +71,61 @@ public class IFMSIntegrationTrack {
 	@Column(name="ack_err")
 	private String ackErr;
 	
-	@Column(name="res_status")
-	private String resStatus;
+	@Column(name="bill_status") 
+	private String billStatus;
 	
-	@Column(name="res_date")
-	private Date resDate;
 	
-	@Column(name="res_err")
-	private String resErr;
+	@Column(name="bill_status_err")
+	private String billStatusErr;
 	
-	@Column(name="is_verified")
-	private Boolean isVerified;
+	@Column(name="check_status")
+	private String checkStatus;
 	
-	@Column(name="op_dt")
-	private Date opDt;
+	@Column(name="check_status_err")
+	private Date checkStatusErr;
 	
-	@Column(name="unique_id",unique= true, nullable = false)
-	private String uniqueId;
+	@Column(name="check_status_date")
+	private Date checkStatusDate;
+	
+	@Column(name="voucher_no")
+	private String voucherNo;
+	
+	@Column(name="voucher_date")
+	private java.sql.Date voucherDate;
+	
+	@Column(name="bill_status_check")
+	private String billStatusString;
+	
+	@Column(name="utr_no")
+	private String utrNo;
+	
+	@Column(name="utr_date")
+	private java.sql.Date utrDate;
+	
+	@Column(name="benf_payment_status")
+	private String benfPaymentStatus;
+	
+	@Column(name="benf_bill_status")
+	private String benefBillStatus;
+	
+	@Column(name="revert_status_date")
+	private String revertStatusDate;
+	
+	@Column(name="revert_status")
+	private String revertStatus;
+	
+	@Column(name="ddo_check_status_date")
+	private String ddoCheckStatusDate;
+	
+	@Column(name="ddo_check_status")
+	private String ddoCheckStatus;
+	
+	@Column(name="off_cd")
+	private String offCd;
+	
+	
+	private String query;
+	
 
 	public Long getId() {
 		return id;
@@ -75,12 +135,36 @@ public class IFMSIntegrationTrack {
 		this.id = id;
 	}
 
-	public String getFileName() {
-		return fileName;
+	public String getFileRefId() {
+		return fileRefId;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFileRefId(String fileRefId) {
+		this.fileRefId = fileRefId;
+	}
+
+	public String getBillNo() {
+		return billNo;
+	}
+
+	public void setBillNo(String billNo) {
+		this.billNo = billNo;
+	}
+
+	public String getBillRefNo() {
+		return billRefNo;
+	}
+
+	public void setBillRefNo(String billRefNo) {
+		this.billRefNo = billRefNo;
+	}
+
+	public String getResFileName() {
+		return resFileName;
+	}
+
+	public void setResFileName(String resFileName) {
+		this.resFileName = resFileName;
 	}
 
 	public String getApplNo() {
@@ -89,6 +173,14 @@ public class IFMSIntegrationTrack {
 
 	public void setApplNo(String applNo) {
 		this.applNo = applNo;
+	}
+
+	public String getRegnNo() {
+		return regnNo;
+	}
+
+	public void setRegnNo(String regnNo) {
+		this.regnNo = regnNo;
 	}
 
 	public String getAccNo() {
@@ -115,28 +207,28 @@ public class IFMSIntegrationTrack {
 		this.ifsc = ifsc;
 	}
 
-	public Date getPushDate() {
-		return pushDate;
+	public String getSubmitStatus() {
+		return submitStatus;
 	}
 
-	public void setPushDate(Date pushDate) {
-		this.pushDate = pushDate;
+	public void setSubmitStatus(String submitStatus) {
+		this.submitStatus = submitStatus;
 	}
 
-	public String getPushStatus() {
-		return pushStatus;
+	public Date getSubmitDate() {
+		return submitDate;
 	}
 
-	public void setPushStatus(String pushStatus) {
-		this.pushStatus = pushStatus;
+	public void setSubmitDate(Date submitDate) {
+		this.submitDate = submitDate;
 	}
 
-	public String getPushErr() {
-		return pushErr;
+	public String getSubmitErr() {
+		return submitErr;
 	}
 
-	public void setPushErr(String pushErr) {
-		this.pushErr = pushErr;
+	public void setSubmitErr(String submitErr) {
+		this.submitErr = submitErr;
 	}
 
 	public String getAckStatus() {
@@ -163,53 +255,152 @@ public class IFMSIntegrationTrack {
 		this.ackErr = ackErr;
 	}
 
-	public String getResStatus() {
-		return resStatus;
+	public String getBillStatus() {
+		return billStatus;
 	}
 
-	public void setResStatus(String resStatus) {
-		this.resStatus = resStatus;
+	public void setBillStatus(String billStatus) {
+		this.billStatus = billStatus;
 	}
 
-	public Date getResDate() {
-		return resDate;
+
+	public Date getCheckStatusErr() {
+		return checkStatusErr;
 	}
 
-	public void setResDate(Date resDate) {
-		this.resDate = resDate;
+	public void setCheckStatusErr(Date checkStatusErr) {
+		this.checkStatusErr = checkStatusErr;
 	}
 
-	public String getResErr() {
-		return resErr;
+
+	public String getBillStatusErr() {
+		return billStatusErr;
 	}
 
-	public void setResErr(String resErr) {
-		this.resErr = resErr;
+	public void setBillStatusErr(String billStatusErr) {
+		this.billStatusErr = billStatusErr;
 	}
 
-	public Boolean getIsVerified() {
-		return isVerified;
+	public String getCheckStatus() {
+		return checkStatus;
 	}
 
-	public void setIsVerified(Boolean isVerified) {
-		this.isVerified = isVerified;
+	public void setCheckStatus(String checkStatus) {
+		this.checkStatus = checkStatus;
 	}
 
-	public String getUniqueId() {
-		return uniqueId;
+	public Date getCheckStatusDate() {
+		return checkStatusDate;
 	}
 
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
+	public void setCheckStatusDate(Date checkStatusDate) {
+		this.checkStatusDate = checkStatusDate;
 	}
 
-	public Date getOpDt() {
-		return opDt;
+	public String getVoucherNo() {
+		return voucherNo;
 	}
 
-	public void setOpDt(Date opDt) {
-		this.opDt = opDt;
+	public void setVoucherNo(String voucherNo) {
+		this.voucherNo = voucherNo;
 	}
+
+	public java.sql.Date getVoucherDate() {
+		return voucherDate;
+	}
+
+	public void setVoucherDate(java.sql.Date voucherDate) {
+		this.voucherDate = voucherDate;
+	}
+
+	public String getBillStatusString() {
+		return billStatusString;
+	}
+
+	public void setBillStatusString(String billStatusString) {
+		this.billStatusString = billStatusString;
+	}
+
+	public String getUtrNo() {
+		return utrNo;
+	}
+
+	public void setUtrNo(String utrNo) {
+		this.utrNo = utrNo;
+	}
+
+	public java.sql.Date getUtrDate() {
+		return utrDate;
+	}
+
+	public void setUtrDate(java.sql.Date utrDate) {
+		this.utrDate = utrDate;
+	}
+
+	public String getBenefBillStatus() {
+		return benefBillStatus;
+	}
+
+	public void setBenefBillStatus(String benefBillStatus) {
+		this.benefBillStatus = benefBillStatus;
+	}
+
+	public String getBenfPaymentStatus() {
+		return benfPaymentStatus;
+	}
+
+	public void setBenfPaymentStatus(String benfPaymentStatus) {
+		this.benfPaymentStatus = benfPaymentStatus;
+	}
+
+	public String getRevertStatus() {
+		return revertStatus;
+	}
+
+	public void setRevertStatus(String revertStatus) {
+		this.revertStatus = revertStatus;
+	}
+
+	public String getDdoCheckStatus() {
+		return ddoCheckStatus;
+	}
+
+	public void setDdoCheckStatus(String ddoCheckStatus) {
+		this.ddoCheckStatus = ddoCheckStatus;
+	}
+
+	public String getQuery() {
+		return query;
+	}
+
+	public void setQuery(String query) {
+		this.query = query;
+	}
+
+	public String getRevertStatusDate() {
+		return revertStatusDate;
+	}
+
+	public void setRevertStatusDate(String revertStatusDate) {
+		this.revertStatusDate = revertStatusDate;
+	}
+
+	public String getDdoCheckStatusDate() {
+		return ddoCheckStatusDate;
+	}
+
+	public void setDdoCheckStatusDate(String ddoCheckStatusDate) {
+		this.ddoCheckStatusDate = ddoCheckStatusDate;
+	}
+
+	public String getOffCd() {
+		return offCd;
+	}
+
+	public void setOffCd(String offCd) {
+		this.offCd = offCd;
+	}
+
 	
-	
+
 }
