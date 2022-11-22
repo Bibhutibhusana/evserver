@@ -6,9 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name="evh_bank_details")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class BankDetailsHistory {
 
 

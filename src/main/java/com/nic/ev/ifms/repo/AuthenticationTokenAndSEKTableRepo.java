@@ -4,7 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.nic.ev.ifms.model.webservice.AuthenticationTokenAndSEKTable;
+import com.nic.ev.ifms.model.AuthenticationTokenAndSEKTable;
+
 
 @Repository
 public interface AuthenticationTokenAndSEKTableRepo  extends JpaRepository<AuthenticationTokenAndSEKTable,Long>{

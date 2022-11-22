@@ -6,8 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="evt_status")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class UserStatus {
 	
 	@Id
@@ -45,9 +48,12 @@ public class UserStatus {
 	
 	private String disbursement;
 	
+	private String rtgsNo;
 	
+	private String bankNameDisbursement;
 	
-
+	private Date disburseDt;
+	
 	public String getRegnNo() {
 		return regnNo;
 	}
@@ -176,11 +182,27 @@ public class UserStatus {
 		this.disbursement = disbursement;
 	}
 
+	public String getRtgsNo() {
+		return rtgsNo;
+	}
 
+	public void setRtgsNo(String rtgsNo) {
+		this.rtgsNo = rtgsNo;
+	}
 
+	public String getBankNameDisbursement() {
+		return bankNameDisbursement;
+	}
 
-	
-	
-	
+	public void setBankNameDisbursement(String bankNameDisbursement) {
+		this.bankNameDisbursement = bankNameDisbursement;
+	}
 
+	public Date getDisburseDt() {
+		return disburseDt;
+	}
+
+	public void setDisburseDt(Date disburseDt) {
+		this.disburseDt = disburseDt;
+	}
 }

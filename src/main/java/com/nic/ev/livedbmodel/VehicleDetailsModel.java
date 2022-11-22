@@ -40,10 +40,6 @@ public class VehicleDetailsModel {
 	private Long sale_amnt;
 	
 	private Date purchaseDt;
-	
-	
-	
-	
 
 	public String getRegnNo() {
 		return regnNo;

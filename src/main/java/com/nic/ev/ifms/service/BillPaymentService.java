@@ -47,17 +47,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.nic.ev.ifms.model.FileSendTrackModel;
 import com.nic.ev.ifms.model.IFMSIntegrationTrack;
-import com.nic.ev.ifms.model.webservice.AuthenticationTokenAndSEKTable;
-import com.nic.ev.ifms.model.webservice.Beneficiary;
-import com.nic.ev.ifms.model.webservice.BillDetail;
-import com.nic.ev.ifms.model.webservice.BillPaymentAckResponse;
-import com.nic.ev.ifms.model.webservice.BillPaymentErrorMaster;
-import com.nic.ev.ifms.model.webservice.BillResponseStatusMaster;
-import com.nic.ev.ifms.model.webservice.ByTransfer;
-import com.nic.ev.ifms.model.webservice.HoaBreakup;
-import com.nic.ev.ifms.model.webservice.XMLBillPaymentFile;
-import com.nic.ev.ifms.model.webservice.dto.BillPaymentFileDetails;
-import com.nic.ev.ifms.model.webservice.dto.BillPaymentResponse;
+import com.nic.ev.ifms.model.AuthenticationTokenAndSEKTable;
+import com.nic.ev.ifms.model.Beneficiary;
+import com.nic.ev.ifms.model.BillDetail;
+import com.nic.ev.ifms.model.BillPaymentAckResponse;
+import com.nic.ev.ifms.model.BillPaymentErrorMaster;
+import com.nic.ev.ifms.model.BillResponseStatusMaster;
+import com.nic.ev.ifms.model.ByTransfer;
+import com.nic.ev.ifms.model.HoaBreakup;
+import com.nic.ev.ifms.model.XMLBillPaymentFile;
+import com.nic.ev.ifms.model.dto.BillPaymentFileDetails;
+import com.nic.ev.ifms.model.dto.BillPaymentResponse;
 import com.nic.ev.ifms.repo.AuthenticationTokenAndSEKTableRepo;
 import com.nic.ev.ifms.repo.BillPaymentErrorMasterRepo;
 import com.nic.ev.ifms.repo.FilesSendTranckRepo;
@@ -131,11 +131,8 @@ public class BillPaymentService {
 				beneficiary.setMobileNo((String) bankDetail.get("mobileno"));
 				beneficiary.setAddress((String) bankDetail.get("address"));
 				beneficiary.setAccountType("S");
+				beneficiary.setApplNo((String) bankDetail.get("regn_no"));
 //				beneficiary.setAccountType((String) bankDetail.get("acc_type"));
-				beneficiary.setApplNo((String) bankDetail.get("appl_no"));
-				//////////////////////////////////////////////////////////////////////////////////////////
-				beneficiary.setOffCd((String)bankDetail.get("off_cd"));
-				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				BigDecimal amount = new BigDecimal(Double.parseDouble((String) bankDetail.get("amount")));
 				amount = amount.setScale(2, RoundingMode.HALF_UP);
 				beneficiary.setAmount(amount);
@@ -365,8 +362,8 @@ public class BillPaymentService {
 							 transactionDetails.setSubmitDate(new Date());
 							 transactionDetails.setSubmitStatus("Y");
 							 transactionDetails.setCreatedDate(new Date());
-							 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 21/11/22////////////////////////////////
-							 transactionDetails.setOffCd(beneficiary.getOffCd());
+							 
+							
 							 try {
 								 IFMSIntegrationTrack ifmsTrack = ifmsTransactionRepo.save(transactionDetails);
 							 }

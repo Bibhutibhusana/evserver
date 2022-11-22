@@ -2,6 +2,8 @@ package com.nic.ev.model;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SanctionOrder {
 
 	private Date approveDt; 

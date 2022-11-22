@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.nic.ev.ifms.model.webservice.BaseEntity;
+import com.nic.ev.model.BaseEntity;
 
 import lombok.Data;
 
@@ -17,6 +17,11 @@ import lombok.Data;
 @Entity
 @Table(name="evh_ifms_transaction")
 public class IFMSTransactionHistory extends BaseEntity{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;

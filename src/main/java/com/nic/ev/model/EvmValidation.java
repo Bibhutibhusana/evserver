@@ -2,13 +2,14 @@ package com.nic.ev.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity	
 @Table(name="evt_oem_model_validation")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class EvmValidation {
 	
 	@Id
@@ -27,6 +28,9 @@ public class EvmValidation {
 	@Column
 	private int warranty;
 	
+
+
+
 	public String getModelName() {
 		return modelName;
 	}
@@ -42,6 +46,8 @@ public class EvmValidation {
 	public void setMinTopSpeed(int minTopSpeed) {
 		this.minTopSpeed = minTopSpeed;
 	}
+
+	
 
 	public float getMinAcceleration() {
 		return minAcceleration;

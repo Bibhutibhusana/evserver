@@ -8,15 +8,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.boot.MappingException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
-import org.hibernate.id.enhanced.SequenceStyleGenerator;
-import org.hibernate.internal.util.config.ConfigurationHelper;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.type.LongType;
 import org.hibernate.type.Type;
 
-public class StringPrefixedSequenceIdGenerator   implements IdentifierGenerator {
+public class StringPrefixedSequenceIdGenerator implements IdentifierGenerator{
 
-    private String prefix;
+	private String prefix;
 
     @Override
     public Serializable generate(
@@ -28,9 +25,11 @@ public class StringPrefixedSequenceIdGenerator   implements IdentifierGenerator 
               .getIdentifierPropertyName(),
             obj.getClass().getSimpleName());
 
-        Stream ids = session.createQuery(query).stream();
+        @SuppressWarnings("rawtypes")
+		Stream ids = session.createQuery(query).stream();
 
-        Long max = ids.map(o -> ((Properties) o).replace(prefix + "-", "")).mapToLong(num -> Long.parseLong((String) num))
+        @SuppressWarnings("unchecked")
+		Long max = ids.map(o -> ((Properties) o).replace(prefix + "-", "")).mapToLong(num -> Long.parseLong((String) num))
           .max()
           .orElse(0L);
 
@@ -75,5 +74,4 @@ public class StringPrefixedSequenceIdGenerator   implements IdentifierGenerator 
 //                params, NUMBER_FORMAT_DEFAULT);
 //        codeNumberSeparator = ConfigurationHelper.getString(CODE_NUMBER_SEPARATOR_PARAMETER, params, CODE_NUMBER_SEPARATOR_DEFAULT);
 //    }
-// 
 //}

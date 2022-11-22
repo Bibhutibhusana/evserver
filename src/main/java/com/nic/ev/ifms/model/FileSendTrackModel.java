@@ -1,6 +1,6 @@
 package com.nic.ev.ifms.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "evt_files_track")
 public class FileSendTrackModel {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
@@ -20,7 +21,6 @@ public class FileSendTrackModel {
 	public Date fileSendDate;
 
 	@Column(name = "count")
-//	@Size(max=3)
 	public int noOfFilesSend;
 
 	@Column(name = "files",length=10000) 
@@ -56,6 +56,5 @@ public class FileSendTrackModel {
 
 	public void setFileNames(String fileNames) {
 		this.fileNames = fileNames;
-	}
-
+	}	
 }

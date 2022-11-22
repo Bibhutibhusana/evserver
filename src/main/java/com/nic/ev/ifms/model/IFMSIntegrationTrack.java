@@ -7,16 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceProperty;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
-import com.nic.ev.ifms.model.webservice.BaseEntity;
+import com.nic.ev.model.BaseEntity;
 
 @Entity
 @Table(name="evt_ifms_transaction")
 public class IFMSIntegrationTrack extends BaseEntity{
+
 	/**
 	 * 
 	 */
@@ -91,16 +89,16 @@ public class IFMSIntegrationTrack extends BaseEntity{
 	private String voucherNo;
 	
 	@Column(name="voucher_date")
-	private java.sql.Date voucherDate;
+	private Date voucherDate;
 	
 	@Column(name="bill_status_check")
 	private String billStatusString;
 	
 	@Column(name="utr_no")
 	private String utrNo;
-	
+
 	@Column(name="utr_date")
-	private java.sql.Date utrDate;
+	private Date utrDate;
 	
 	@Column(name="benf_payment_status")
 	private String benfPaymentStatus;
@@ -108,24 +106,65 @@ public class IFMSIntegrationTrack extends BaseEntity{
 	@Column(name="benf_bill_status")
 	private String benefBillStatus;
 	
-	@Column(name="revert_status_date")
-	private String revertStatusDate;
-	
 	@Column(name="revert_status")
 	private String revertStatus;
 	
-	@Column(name="ddo_check_status_date")
-	private String ddoCheckStatusDate;
+	@Column(name="revert_status_date")
+	private Date revertStatusDate;
 	
 	@Column(name="ddo_check_status")
 	private String ddoCheckStatus;
 	
-	@Column(name="off_cd")
-	private String offCd;
+	@Column(name="ddo_check_status_date")
+	private Date ddoCheckStatusDate;
 	
+	@Column(name="rto_code")
+	private String rtoCode;
+
+	public IFMSIntegrationTrack() {
+	}
 	
-	private String query;
-	
+	public IFMSIntegrationTrack(Long id, String fileRefId, String billNo, String billRefNo, String resFileName,
+			String applNo, String regnNo, String accNo, String name, String ifsc, String submitStatus, Date submitDate,
+			String submitErr, String ackStatus, Date ackDate, String ackErr, String billStatus, String billStatusErr,
+			String checkStatus, Date checkStatusErr, Date checkStatusDate, String voucherNo, Date voucherDate,
+			String billStatusString, String utrNo, Date utrDate, String benfPaymentStatus, String benefBillStatus,
+			String revertStatus, Date revertStatusDate, String ddoCheckStatus, Date ddoCheckStatusDate, String rtoCode) {
+		super();
+		this.id = id;
+		this.fileRefId = fileRefId;
+		this.billNo = billNo;
+		this.billRefNo = billRefNo;
+		this.resFileName = resFileName;
+		this.applNo = applNo;
+		this.regnNo = regnNo;
+		this.accNo = accNo;
+		this.name = name;
+		this.ifsc = ifsc;
+		this.submitStatus = submitStatus;
+		this.submitDate = submitDate;
+		this.submitErr = submitErr;
+		this.ackStatus = ackStatus;
+		this.ackDate = ackDate;
+		this.ackErr = ackErr;
+		this.billStatus = billStatus;
+		this.billStatusErr = billStatusErr;
+		this.checkStatus = checkStatus;
+		this.checkStatusErr = checkStatusErr;
+		this.checkStatusDate = checkStatusDate;
+		this.voucherNo = voucherNo;
+		this.voucherDate = voucherDate;
+		this.billStatusString = billStatusString;
+		this.utrNo = utrNo;
+		this.utrDate = utrDate;
+		this.benfPaymentStatus = benfPaymentStatus;
+		this.benefBillStatus = benefBillStatus;
+		this.revertStatus = revertStatus;
+		this.revertStatusDate = revertStatusDate;
+		this.ddoCheckStatus = ddoCheckStatus;
+		this.ddoCheckStatusDate = ddoCheckStatusDate;
+		this.rtoCode = rtoCode;
+	}
 
 	public Long getId() {
 		return id;
@@ -263,16 +302,6 @@ public class IFMSIntegrationTrack extends BaseEntity{
 		this.billStatus = billStatus;
 	}
 
-
-	public Date getCheckStatusErr() {
-		return checkStatusErr;
-	}
-
-	public void setCheckStatusErr(Date checkStatusErr) {
-		this.checkStatusErr = checkStatusErr;
-	}
-
-
 	public String getBillStatusErr() {
 		return billStatusErr;
 	}
@@ -287,6 +316,14 @@ public class IFMSIntegrationTrack extends BaseEntity{
 
 	public void setCheckStatus(String checkStatus) {
 		this.checkStatus = checkStatus;
+	}
+
+	public Date getCheckStatusErr() {
+		return checkStatusErr;
+	}
+
+	public void setCheckStatusErr(Date checkStatusErr) {
+		this.checkStatusErr = checkStatusErr;
 	}
 
 	public Date getCheckStatusDate() {
@@ -305,11 +342,11 @@ public class IFMSIntegrationTrack extends BaseEntity{
 		this.voucherNo = voucherNo;
 	}
 
-	public java.sql.Date getVoucherDate() {
+	public Date getVoucherDate() {
 		return voucherDate;
 	}
 
-	public void setVoucherDate(java.sql.Date voucherDate) {
+	public void setVoucherDate(Date voucherDate) {
 		this.voucherDate = voucherDate;
 	}
 
@@ -329,20 +366,12 @@ public class IFMSIntegrationTrack extends BaseEntity{
 		this.utrNo = utrNo;
 	}
 
-	public java.sql.Date getUtrDate() {
+	public Date getUtrDate() {
 		return utrDate;
 	}
 
-	public void setUtrDate(java.sql.Date utrDate) {
+	public void setUtrDate(Date utrDate) {
 		this.utrDate = utrDate;
-	}
-
-	public String getBenefBillStatus() {
-		return benefBillStatus;
-	}
-
-	public void setBenefBillStatus(String benefBillStatus) {
-		this.benefBillStatus = benefBillStatus;
 	}
 
 	public String getBenfPaymentStatus() {
@@ -351,6 +380,14 @@ public class IFMSIntegrationTrack extends BaseEntity{
 
 	public void setBenfPaymentStatus(String benfPaymentStatus) {
 		this.benfPaymentStatus = benfPaymentStatus;
+	}
+
+	public String getBenefBillStatus() {
+		return benefBillStatus;
+	}
+
+	public void setBenefBillStatus(String benefBillStatus) {
+		this.benefBillStatus = benefBillStatus;
 	}
 
 	public String getRevertStatus() {
@@ -369,38 +406,27 @@ public class IFMSIntegrationTrack extends BaseEntity{
 		this.ddoCheckStatus = ddoCheckStatus;
 	}
 
-	public String getQuery() {
-		return query;
-	}
-
-	public void setQuery(String query) {
-		this.query = query;
-	}
-
-	public String getRevertStatusDate() {
+	public Date getRevertStatusDate() {
 		return revertStatusDate;
 	}
 
-	public void setRevertStatusDate(String revertStatusDate) {
+	public void setRevertStatusDate(Date revertStatusDate) {
 		this.revertStatusDate = revertStatusDate;
 	}
 
-	public String getDdoCheckStatusDate() {
+	public Date getDdoCheckStatusDate() {
 		return ddoCheckStatusDate;
 	}
 
-	public void setDdoCheckStatusDate(String ddoCheckStatusDate) {
+	public void setDdoCheckStatusDate(Date ddoCheckStatusDate) {
 		this.ddoCheckStatusDate = ddoCheckStatusDate;
 	}
 
-	public String getOffCd() {
-		return offCd;
+	public String getRtoCode() {
+		return rtoCode;
 	}
 
-	public void setOffCd(String offCd) {
-		this.offCd = offCd;
+	public void setRtoCode(String rtoCode) {
+		this.rtoCode = rtoCode;
 	}
-
-	
-
 }

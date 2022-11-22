@@ -9,7 +9,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="evt_ifms_error_master")
-public class IFMSErrorModel {
+public class IFMSErrorModel{
+	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
@@ -54,8 +55,4 @@ public class IFMSErrorModel {
 	public void setEvErr(String evErr) {
 		this.evErr = evErr;
 	}
-	
-	
-	
-
 }
