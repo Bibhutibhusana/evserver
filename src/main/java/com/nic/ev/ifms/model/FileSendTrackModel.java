@@ -9,6 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "evt_files_track")
 public class FileSendTrackModel {
@@ -25,37 +32,5 @@ public class FileSendTrackModel {
 
 	@Column(name = "files",length=10000) 
 	public String fileNames;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Date getFileSendDate() {
-		return fileSendDate;
-	}
-
-	public void setFileSendDate(Date fileSendDate) {
-		this.fileSendDate = fileSendDate;
-	}
-
-	public int getNoOfFilesSend() {
-		return noOfFilesSend;
-	}
-
-	public void setNoOfFilesSend(int noOfFilesSend) {
-		this.noOfFilesSend = noOfFilesSend;
-	}
-
-	public String getFileNames() {
-		return fileNames;
-	}
-
-	public void setFileNames(String fileNames) {
-		this.fileNames = fileNames;
-	}
 
 }

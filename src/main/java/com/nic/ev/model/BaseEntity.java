@@ -1,4 +1,4 @@
-package com.nic.ev.ifms.model.webservice;
+package com.nic.ev.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -8,6 +8,13 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
+import com.nic.ev.ifms.model.webservice.ByTransfer;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data	
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 	private static final long serialVersionUID = 6950438514663523722L;
@@ -28,36 +35,7 @@ public class BaseEntity implements Serializable {
 	@Version
 	private Long versionNo;
 	
-	public Long getCreatedBy() {
-		return createdBy;
-	}
-	public void setCreatedBy(Long createdBy) {
-		this.createdBy = createdBy;
-	}
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-	public Long getUpdatedBy() {
-		return updatedBy;
-	}
-	public void setUpdatedBy(Long updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-	public Date getUpdatedDate() {
-		return updatedDate;
-	}
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-	public Long getVersionNo() {
-		return versionNo;
-	}
-	public void setVersionNo(Long versionNo) {
-		this.versionNo = versionNo;
-	}
+	
 	
 	public BaseEntity() {
 		

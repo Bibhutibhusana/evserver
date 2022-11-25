@@ -1,6 +1,12 @@
 package com.nic.ev.ifms.model.webservice.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data	
+@NoArgsConstructor
+@AllArgsConstructor
 public class BillPaymentResponse {
 	private Boolean status;
 	private String billStatusString;

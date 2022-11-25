@@ -1,9 +1,5 @@
 package com.nic.ev.ifms.controller;
 
-import java.security.InvalidKeyException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,13 +41,16 @@ public class BillPaymentController {
 	@ResponseBody
 	public Map<String,String> sendBillPaymentFileToIFMS(@RequestBody Map<String,String> date) throws Exception {
 //		String encodedKey =  authService.createAppkey();
-//		Thread.sleep(1000);
+		getAuthTokenAndSEKForBillPayment();
+		Thread.sleep(2000);
 		return billPaymentService.sendBillPaymentFileToIFMS(date.get("date"));
 	}
 	
 	@PostMapping(value="/billPaymentStatusCheck")
 	@ResponseBody
-	public Map<String,String> billPaymentStatusCheck(@RequestBody Map<String,String> data) throws InvalidKeyException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
+	public Map<String,String> billPaymentStatusCheck(@RequestBody Map<String,String> data) throws Exception {
+		getAuthTokenAndSEKForBillPayment();
+		Thread.sleep(2000);
 		return billPaymentService.billPaymetStatusCheck(data.get("dataString"));
 	}
 	

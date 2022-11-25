@@ -3,6 +3,13 @@ package com.nic.ev.ifms.model;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @XmlRootElement(name = "beneficiary")
 @XmlType(propOrder = {
     "benfAccountNo",

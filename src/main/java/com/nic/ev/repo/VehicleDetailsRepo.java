@@ -13,7 +13,7 @@ import com.nic.ev.livedbmodel.VehicleDetailsModel;
 
 public interface VehicleDetailsRepo extends JpaRepository<VehicleDetailsModel, String>{
 	
-	@Query(value="select distinct d.regn_no,owner_name,bd.appl_no,bd.acc_no,bd.passbook_img,st.verification,d.fuel,d.v_class,d.purchase_dt,bd.branch_name,mob_no "
+	@Query(value="select distinct d.regn_no,owner_name,bd.appl_no,bd.acc_no,bd.ifsc_code,bd.passbook_img,st.verification,d.fuel,d.v_class,d.purchase_dt,bd.branch_name,mob_no "
 			+ "from evschema.evt_details d "
 			+ "inner join evschema.evt_bank_details bd on d.regn_no=bd.regn_no "
 			+ "inner join evschema.evt_status st on d.regn_no=st.regn_no "

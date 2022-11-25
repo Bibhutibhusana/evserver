@@ -13,9 +13,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.nic.ev.ifms.model.webservice.dto.Code;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @XmlRootElement(name = "beneficiary")
 public class Beneficiary {
 	@JsonInclude(Include.NON_NULL)

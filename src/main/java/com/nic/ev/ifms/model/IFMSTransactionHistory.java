@@ -9,11 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.nic.ev.ifms.model.webservice.BaseEntity;
+import com.nic.ev.model.BaseEntity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="evh_ifms_transaction")
 public class IFMSTransactionHistory extends BaseEntity{
@@ -69,71 +73,5 @@ public class IFMSTransactionHistory extends BaseEntity{
 	@Column(name="bill_status_err")
 	private String billStatusErr;
 	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getApplNo() {
-		return applNo;
-	}
-
-	public void setApplNo(String applNo) {
-		this.applNo = applNo;
-	}
-
-	public String getAccNo() {
-		return accNo;
-	}
-
-	public void setAccNo(String accNo) {
-		this.accNo = accNo;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getIfsc() {
-		return ifsc;
-	}
-
-	public void setIfsc(String ifsc) {
-		this.ifsc = ifsc;
-	}
-
-	
-	public String getAckStatus() {
-		return ackStatus;
-	}
-
-	public void setAckStatus(String ackStatus) {
-		this.ackStatus = ackStatus;
-	}
-
-	public Date getAckDate() {
-		return ackDate;
-	}
-
-	public void setAckDate(Date ackDate) {
-		this.ackDate = ackDate;
-	}
-
-	public String getAckErr() {
-		return ackErr;
-	}
-
-	public void setAckErr(String ackErr) {
-		this.ackErr = ackErr;
-	}
-
 	
 }

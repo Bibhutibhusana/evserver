@@ -4,9 +4,13 @@ import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
+@Data	
+@NoArgsConstructor
+@AllArgsConstructor
 @XmlRootElement(name = "hoaBreakup")
 public class HoaBreakup {
 	private String hoa;

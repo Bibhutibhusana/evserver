@@ -13,17 +13,22 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.nic.ev.ifms.model.webservice.dto.BillPaymentFileDetails;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @JacksonXmlRootElement(localName = "bulkPayment")
 @XmlRootElement(name="bulkPayment")
 @XmlAccessorType(XmlAccessType.FIELD)
-@Data
+@Data	
+@NoArgsConstructor
+@AllArgsConstructor
 public class XMLBillPaymentFile implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
 	public BillPaymentFileDetails fileDetail;
+	
     public BillDetail billDetail;
     
     @JsonInclude(Include.NON_NULL)

@@ -22,7 +22,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			
+
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -31,14 +31,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			
-		</dependency>
 
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>5.3.21</version><!--$NO-MVN-MAN-VER$-->
+			<version>5.3.21</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -54,7 +54,7 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
-			<version>42.4.0</version><!--$NO-MVN-MAN-VER$-->
+			<version>42.4.0</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -64,24 +64,57 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
-			<version>2.13.3</version><!--$NO-MVN-MAN-VER$-->
+			<version>2.13.3</version><!--$NO-MVN-MAN-VER$ -->
 
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
-		 <dependency>
-	        <groupId>org.bouncycastle</groupId>
-	        <artifactId>bcprov-jdk15on</artifactId>
-	        <version>1.52</version>
-	    </dependency>
-    	<dependency>
-		  <groupId>com.google.code.gson</groupId>
-		  <artifactId>gson</artifactId>
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>3.0.3</version>
 		</dependency>
-    	<dependency>
-	        <groupId>org.bouncycastle</groupId>
-	        <artifactId>bcpkix-jdk15on</artifactId>
-	        <version>1.52</version>
-	    </dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.7.2</version>
+			<!-- $NO-MVN-MAN-VER$ -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.7.2</version>
+			<!-- $NO-MVN-MAN-VER$ -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.7.0</version>
+			<!-- $NO-MVN-MAN-VER$ -->
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.52</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
+			<version>1.52</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
@@ -105,20 +138,20 @@
 			<version>0.1.55</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpclient</artifactId>
-		</dependency>		
-		<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
-		    <version>1.18.24</version>
-	
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
 		</dependency>
 		<dependency>
-	        <groupId>commons-lang</groupId>
-	        <artifactId>commons-lang</artifactId>
-	        <version>2.4</version>
-	    </dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

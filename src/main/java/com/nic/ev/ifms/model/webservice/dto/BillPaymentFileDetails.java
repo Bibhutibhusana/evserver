@@ -9,9 +9,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 @XmlAccessorType(XmlAccessType.FIELD)
-@Data
+@Data	
+@NoArgsConstructor
+@AllArgsConstructor
 public class BillPaymentFileDetails {
 	private String fileType;
 	private String intgCode;

@@ -52,7 +52,6 @@ import com.nic.ev.ifms.model.webservice.Beneficiary;
 import com.nic.ev.ifms.model.webservice.BillDetail;
 import com.nic.ev.ifms.model.webservice.BillPaymentAckResponse;
 import com.nic.ev.ifms.model.webservice.BillPaymentErrorMaster;
-import com.nic.ev.ifms.model.webservice.BillResponseStatusMaster;
 import com.nic.ev.ifms.model.webservice.ByTransfer;
 import com.nic.ev.ifms.model.webservice.HoaBreakup;
 import com.nic.ev.ifms.model.webservice.XMLBillPaymentFile;
@@ -121,7 +120,7 @@ public class BillPaymentService {
 			List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();
 			Collection<Map<String, Object>> bankDetails = xmlBillPaymentDetailsRepo
 					.findByOpDate(myCustomDateForTesting);
-		
+		 
 			for (Map<String, Object> bankDetail : bankDetails) {
 				Beneficiary beneficiary = new Beneficiary();
 				beneficiary.setBenfId((String) bankDetail.get("regn_no"));
@@ -132,9 +131,10 @@ public class BillPaymentService {
 				beneficiary.setAddress((String) bankDetail.get("address"));
 				beneficiary.setAccountType("S");
 //				beneficiary.setAccountType((String) bankDetail.get("acc_type"));
-				beneficiary.setApplNo((String) bankDetail.get("appl_no"));
+				beneficiary.setApplNo((String) bankDetail.get("applno"));
 				//////////////////////////////////////////////////////////////////////////////////////////
 				beneficiary.setOffCd((String)bankDetail.get("off_cd"));
+				System.out.println();
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				BigDecimal amount = new BigDecimal(Double.parseDouble((String) bankDetail.get("amount")));
 				amount = amount.setScale(2, RoundingMode.HALF_UP);

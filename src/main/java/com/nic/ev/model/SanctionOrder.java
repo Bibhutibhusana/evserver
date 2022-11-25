@@ -2,50 +2,23 @@ package com.nic.ev.model;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SanctionOrder {
 
-	private Date approveDt; 
-	  private int sub_amnt;
-	  private String inWords;
-	  private String ownerName;
-	  private String regnNo;
-	  private String chequeNo;
-	public Date getApproveDt() {
-		return approveDt;
-	}
-	public void setApproveDt(Date approveDt) {
-		this.approveDt = approveDt;
-	}
-	public int getSub_amnt() {
-		return sub_amnt;
-	}
-	public void setSub_amnt(int sub_amnt) {
-		this.sub_amnt = sub_amnt;
-	}
-	public String getInWords() {
-		return inWords;
-	}
-	public void setInWords(String inWords) {
-		this.inWords = inWords;
-	}
-	public String getOwnerName() {
-		return ownerName;
-	}
-	public void setOwnerName(String ownerName) {
-		this.ownerName = ownerName;
-	}
-	public String getRegnNo() {
-		return regnNo;
-	}
-	public void setRegnNo(String regnNo) {
-		this.regnNo = regnNo;
-	}
-	public String getChequeNo() {
-		return chequeNo;
-	}
-	public void setChequeNo(String chequeNo) {
-		this.chequeNo = chequeNo;
-	}
-	  
-	  
+	private Date approveDt;
+	private int sub_amnt;
+	private String inWords;
+	private String ownerName;
+	private String regnNo;
+	private String chequeNo;
+
 }

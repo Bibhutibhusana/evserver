@@ -1,11 +1,19 @@
 package com.nic.ev.ifms.model.webservice;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 
+import com.nic.ev.ifms.model.beneficiary;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class BillPaymentAckResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+public class BillPaymentAckResponse implements Serializable{
 	private String errorCode;
 	private Boolean status;
 	private String rek;
@@ -13,5 +21,4 @@ public class BillPaymentAckResponse {
 	private String data;
 	private String hmac;
 	
-
 }
